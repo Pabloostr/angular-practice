@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <header class="header">
+        <ul class="header__ul">
+            <li class="header__li" *ngFor="let item of pages">
+                <a class="header__links" routerLink="{{item.link}}">{{item.name}}</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+
+    <footer class="footer"></footer>
+</div>

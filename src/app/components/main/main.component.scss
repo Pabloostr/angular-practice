@@ -1,0 +1,28 @@
+.container {
+    margin: 0 auto;
+    max-width: 60%;
+}
+.context {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    &__title {
+        font-size: 50px;
+        font-weight: 500;
+        color: #FBCA1F;
+        text-shadow: 1px 1px 1px black;
+    }
+}
+.block {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    &__text {
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+        text-align: justify;
+        text-shadow: 0.2px 0.2px 0.2px #FBCA1F;
+    }
+}
