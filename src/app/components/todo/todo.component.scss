@@ -1,0 +1,89 @@
+.todo {
+    margin: 0 auto;
+    max-width: 60%;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    &__header {
+        display: flex;
+        margin: 0 auto;
+        max-width: 240px;
+        font-size: 50px;
+        font-weight: 500;
+        color: #FBCA1F;
+        text-shadow: 1px 1px 1px black;
+        margin-bottom: 10px;
+        background-color: rgb(70, 69, 69);
+        border-radius: 15px;
+        border: 1px solid #FBCA1F;
+        padding: 10px;
+    }
+    &__tasks {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 1.5;
+        padding: 5px 5px;
+        background-color: rgb(170, 170, 170);
+        border-bottom: 1px solid rgb(128, 128, 128);
+    }
+    &__id {
+        flex: 1 1 50px;
+    }
+    &__content {
+        flex: 1 1 100%;
+        width: 400px;
+        &-done {
+            text-decoration: line-through #FBCA1F;
+        }
+    }
+    &__button {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+        border-radius: 3px;
+        color: white;
+        background-color: rgb(70, 69, 69);
+        &:hover {
+            border: 1px solid #FBCA1F;
+            color: #FBCA1F;
+        }   
+    }
+    &__input {
+        margin-top: 30px;
+       display: block; 
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       padding: 5px 5px;
+       border: none;
+       outline: none;
+       background-color: rgb(170, 170, 170);
+       font-size: 20px;
+       font-weight: 300;
+       border-left: 1px solid rgb(128, 128, 128);
+       border-right: 1px solid rgb(128, 128, 128);
+    }
+    &__submit {
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        font-size: 40px;
+        font-weight: 300;
+        border-radius: 22px;
+        color: rgb(70, 69, 69);
+        background-color: #FBCA1F;
+        margin-top: 10px;
+        &:hover {
+            transform: translate(-0.05em, -0.05em);
+            box-shadow: 0.15em 0.15em;
+        }
+        &:active {
+            transform: translate(0.05em, 0.05em);
+            box-shadow: 0.05em 0.05em;
+        }
+    }
+}
