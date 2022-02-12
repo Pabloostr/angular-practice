@@ -14,7 +14,7 @@
         </form>
 
         <div class="todo__tasks" *ngFor="let todo of todos; let i = index;">
-            <div class="todo__id">{{i + 1}}</div>
+            <div class="todo__id" #id>{{i + 1}}</div>
             <div class="todo__content {{(todo.completed ? 'todo__content-done' : '')}}" (click)="toggleDone(i)">{{todo.content}}</div>
             <button class="todo__button" (click)="deleteTodo(i)">X</button>
         </div>

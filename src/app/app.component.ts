@@ -12,6 +12,7 @@ export class AppComponent {
   pages: Array<Page> = [
     { name: "Main",link: "/" },
     { name: "CV", link: "cv" },
-    { name: "ToDo", link: "todo" }
+    { name: "ToDo", link: "todo" },
+    { name: "Forms", link: "forms" }
   ];
 }

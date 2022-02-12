@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { CvComponent } from './components/cv/cv.component';
 import { TodoComponent } from './components/todo/todo.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     CvComponent,
-    TodoComponent
+    TodoComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
