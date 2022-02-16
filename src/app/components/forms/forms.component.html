@@ -1,1 +1,32 @@
-<p>forms works!</p>
+<div class="title">Reactive Form</div>
+<div class="container" formArray="formList">
+    <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()" *ngFor="let group of formList.controls; let i = index">
+
+        <div class="form__inputs">
+            <div class="form__block">
+                <input type="text" placeholder="First Name" formControlName="firstName">
+                <input type="text" placeholder="Last Name" formControlName="lastName">
+            </div>
+    
+            <div class="form__block">
+                <input type="text" placeholder="Email" formControlName="email" email>
+                <input type="text" placeholder="Phone" formControlName="phoneNumber">
+            </div>
+    
+            <div class="form__block">
+                <input type="text" placeholder="Position" formControlName="position">
+                <input type="text" placeholder="Company" formControlName="company">
+            </div>
+        </div>
+        
+        <button class="form__btn {{(!this.profileForm.valid ? 'form__btn-dis' : '')}}"
+                type="submit" 
+                [disabled]="!this.profileForm.valid">
+                Submit
+        </button>
+
+    </form>
+    <button (click)="addRow()">+</button>
+    <button (click)="check()">check</button>
+
+</div>

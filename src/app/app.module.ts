@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { MainComponent } from './components/main/main.component';
 import { CvComponent } from './components/cv/cv.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { FormsComponent } from './components/forms/forms.component';
+
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { FormsComponent } from './components/forms/forms.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
