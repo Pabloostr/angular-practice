@@ -34,6 +34,8 @@
     &__btn {
         font-size: 18px;
         padding: 5px;
+        margin-right: 10px;
+        margin-bottom: 15px;
         border-radius: 10px;
         border: 1px solid #FBCA1F;
         background-color: rgb(70, 69, 69);
@@ -47,6 +49,14 @@
             border: 1px solid #fcebad;
             background-color: rgb(116, 116, 116);
             color: #fcebad; 
+        }
+        &-plus {
+            font-size: 35px;
+            font-weight: 300;
+            color: #FBCA1F;
+            background: none;
+            margin-right: 20px;
+            text-shadow: 1px 1px 1px black;
         }
     }
 }

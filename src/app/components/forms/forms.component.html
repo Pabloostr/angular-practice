@@ -1,32 +1,39 @@
 <div class="title">Reactive Form</div>
-<div class="container" formArray="formList">
-    <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()" *ngFor="let group of formList.controls; let i = index">
-
-        <div class="form__inputs">
-            <div class="form__block">
-                <input type="text" placeholder="First Name" formControlName="firstName">
-                <input type="text" placeholder="Last Name" formControlName="lastName">
-            </div>
+<div class="container">
     
-            <div class="form__block">
-                <input type="text" placeholder="Email" formControlName="email" email>
-                <input type="text" placeholder="Phone" formControlName="phoneNumber">
-            </div>
+    <form class="form" [formGroup]="profileForm" >
+        <ng-container formArrayName="formList">
+            <div *ngFor="let item of getCharValuesFormControls().controls; let i = index">
+                <ng-container [formGroupName]="i">
+                    <div class="form__inputs">
+                        <div class="form__block">
+                            <input type="text" placeholder="First Name" formControlName="firstName">
+                            <input type="text" placeholder="Last Name" formControlName="lastName">
+                        </div>
+                
+                        <div class="form__block">
+                            <input type="text" placeholder="Email" formControlName="email" email>
+                            <input type="text" placeholder="Phone" formControlName="phoneNumber">
+                        </div>
+                
+                        <div class="form__block">
+                            <input type="text" placeholder="Position" formControlName="position">
+                            <input type="text" placeholder="Company" formControlName="company">
+                        </div>
+                    </div>
     
-            <div class="form__block">
-                <input type="text" placeholder="Position" formControlName="position">
-                <input type="text" placeholder="Company" formControlName="company">
+                    <button class="form__btn" (click)="removeValue(i)">Remove</button>
+                </ng-container>
             </div>
-        </div>
-        
-        <button class="form__btn {{(!this.profileForm.valid ? 'form__btn-dis' : '')}}"
-                type="submit" 
-                [disabled]="!this.profileForm.valid">
-                Submit
-        </button>
-
+        </ng-container>
     </form>
-    <button (click)="addRow()">+</button>
-    <button (click)="check()">check</button>
+    <br>
+    <button class="form__btn-plus" (click)="addRow()">+</button>
+    <button class="form__btn" (click)="check()">check</button>
+    <button class="form__btn {{(!profileForm.valid ? 'form__btn-dis' : '')}}"
+            (click)="onSubmit()"
+            [disabled]="!profileForm.valid">
+            Submit
+    </button>
 
 </div>
