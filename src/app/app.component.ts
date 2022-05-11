@@ -13,6 +13,7 @@ export class AppComponent {
     { name: "Main",link: "/" },
     { name: "CV", link: "cv" },
     { name: "ToDo", link: "todo" },
-    { name: "Forms", link: "forms" }
+    { name: "Forms", link: "forms" },
+    { name: "GitHub", link: "github" }
   ];
 }

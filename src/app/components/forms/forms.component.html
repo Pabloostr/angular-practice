@@ -1,9 +1,9 @@
 <div class="title">Reactive Form</div>
 <div class="container">
     
-    <form class="form" [formGroup]="profileForm" >
+    <form  [formGroup]="profileForm" >
         <ng-container formArrayName="formList">
-            <div *ngFor="let item of getCharValuesFormControls().controls; let i = index">
+            <div *ngFor="let item of getCharValuesFormControls().controls; let i = index" class="form">
                 <ng-container [formGroupName]="i">
                     <div class="form__inputs">
                         <div class="form__block">

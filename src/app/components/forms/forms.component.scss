@@ -4,9 +4,10 @@
 }
 .title {
     margin: 0 auto;
-    max-width: 30%;
+    max-width: 20%;
     display: flex;
     justify-content: center;
+    text-align: center;
     margin-top: 200px;
     font-size: 50px;
     font-weight: 500;
@@ -35,7 +36,6 @@
         font-size: 18px;
         padding: 5px;
         margin-right: 10px;
-        margin-bottom: 15px;
         border-radius: 10px;
         border: 1px solid #FBCA1F;
         background-color: rgb(70, 69, 69);

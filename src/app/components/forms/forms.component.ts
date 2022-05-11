@@ -26,7 +26,16 @@ export class FormsComponent implements OnInit {
     //   })
     // ])
     this.profileForm = this.formBuilder.group({
-      formList: this.formBuilder.array([])
+      formList: this.formBuilder.array([
+        this.profileForm = this.formBuilder.group({
+          firstName: ['', Validators.required],
+          lastName: [''],
+          email: ['', Validators.required],
+          phoneNumber: [''],
+          position: [''],
+          company: ['']
+        })
+      ])
     })
   }
 
