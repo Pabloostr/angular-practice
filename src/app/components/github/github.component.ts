@@ -1,36 +1,39 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GithubService } from 'src/app/services/github.service';
 
-import { catchError, debounceTime, distinctUntilChanged, fromEvent, map, switchMap, take } from 'rxjs';
-import {ajax} from 'rxjs/ajax'
+import {
+  debounceTime,
+  distinctUntilChanged,
+  fromEvent,
+  map,
+  switchMap,
+} from 'rxjs';
 
 @Component({
   selector: 'app-github',
   templateUrl: './github.component.html',
-  styleUrls: ['./github.component.scss']
+  styleUrls: ['./github.component.scss'],
 })
-export class GithubComponent implements OnInit {
-
-  constructor(private http: GithubService) {  }
-
+export class GithubComponent implements OnInit, OnDestroy {
+  users: Array<any> = [];
+  totalCounts: number = 0;
+  constructor(private http: GithubService) {}
   ngOnInit(): void {
+    const search: any = document.getElementById('search');
+    fromEvent(search, 'input')
+      .pipe(
+        map((map: any) => map.target.value),
+        debounceTime(2000),
+        distinctUntilChanged(),
+        switchMap((v: any) => {
+          return this.http.getUser(v);
+        })
+      )
+      .subscribe((res) => {
+        this.users = res.items;
+        this.totalCounts = res.totalCounts;
+      });
   }
 
-  search(event:any) {
-    // const search:any = document.getElementById("search");
-    // fromEvent(search, "input")
-    // .pipe(
-    //   map((e:any) => e.target.value),
-    //   debounceTime (1000)
-    // ).subscribe(res => {
-    //   console.log(res)
-    // })
-    this.http.getUser(event.target.value)
-    .pipe(
-      debounceTime(2000),
-      distinctUntilChanged(),
-      catchError(val => val)
-    ).subscribe(res => console.log(res))
-  }
-  
+  ngOnDestroy(): void {}//зробити відписку
 }
