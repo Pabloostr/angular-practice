@@ -1,11 +1,22 @@
 <div class="title">GitHub user search</div>
 <div class="container">
-  <div class="input-field">
-    <input
-      type="text"
-      id="search"
-      placeholder="Searching user:"
-      class="input-search"
-    />
+  <div class="content">
+    <div class="input-field">
+      <input
+        type="text"
+        id="search"
+        placeholder="Searching user:"
+        class="input-search"
+      />
+    </div>
+    <div class="column">
+      <div *ngFor="let user of users" class="column__card">
+        <div class="column__iamge">
+          <img src="{{user.avatar_url}}" class="column__img">
+        </div>
+        <div class="column__title">{{user.login}}</div>
+        <a href="{{user.html_url}}" class="column__btn">Show user</a>
+      </div>
+    </div>
   </div>
 </div>

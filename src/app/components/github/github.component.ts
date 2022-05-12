@@ -7,6 +7,9 @@ import {
   fromEvent,
   map,
   switchMap,
+  catchError,
+  EMPTY,
+  filter
 } from 'rxjs';
 
 @Component({
@@ -15,25 +18,33 @@ import {
   styleUrls: ['./github.component.scss'],
 })
 export class GithubComponent implements OnInit, OnDestroy {
+  stream$:any;
   users: Array<any> = [];
-  totalCounts: number = 0;
+
   constructor(private http: GithubService) {}
+
   ngOnInit(): void {
     const search: any = document.getElementById('search');
-    fromEvent(search, 'input')
+      this.stream$ = fromEvent(search, 'input')
       .pipe(
         map((map: any) => map.target.value),
         debounceTime(2000),
         distinctUntilChanged(),
+        filter(v => v.trim()),
         switchMap((v: any) => {
-          return this.http.getUser(v);
+          return this.http.getUser(v).pipe(
+            catchError(error => EMPTY)
+          );
         })
       )
       .subscribe((res) => {
         this.users = res.items;
-        this.totalCounts = res.totalCounts;
+        // console.log(this.users)
       });
   }
 
-  ngOnDestroy(): void {}//зробити відписку
+  ngOnDestroy(): void {
+    console.log("unsubscribe works!")
+    this.stream$.unsubscribe();
+  }
 }
